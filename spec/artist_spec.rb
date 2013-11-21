@@ -33,6 +33,7 @@ describe Artist do
     end
 
     it "can reset the artists that have been created" do
+      Artist.reset_all #you may need to do this before every test
       Artist.count.should eq(0)
     end
   end

@@ -12,9 +12,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = 'random'
   config.before(:each) do
-    Artist.reset_all
-    Genre.reset_all
-    Song.reset_all
+    #hint - in here you can run all kinds of things
   end
 end
  

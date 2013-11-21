@@ -38,4 +38,9 @@ describe Song do
     "#{song}".should eq("Miley Cyrus - We Can't Stop [Pop]")
   end
 
+  it "can reset all songs" do
+    Song.reset_all
+    Song.count.should eq(0)
+  end
+
 end
