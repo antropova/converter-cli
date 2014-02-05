@@ -1,6 +1,12 @@
 require_relative 'spec_helper.rb'
 
 describe "LibraryParser" do
+  before do
+    Artist.reset_all
+    Song.reset_all
+    Genre.reset_all
+  end
+
   let(:parser){LibraryParser.new}
 
   it 'will parse the library' do
