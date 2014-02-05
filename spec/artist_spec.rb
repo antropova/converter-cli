@@ -2,7 +2,7 @@ require_relative 'spec_helper.rb'
 
 describe Artist do
   before do
-    Artist.class_variable_get('@@artists').clear
+    Artist.reset_all
   end
 
   let(:artist){Artist.new}

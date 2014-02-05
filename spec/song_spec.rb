@@ -2,7 +2,7 @@ require_relative 'spec_helper.rb'
 
 describe Song do
   before do
-    Song.class_variable_get('@@songs').clear
+    Song.reset_all
   end
 
   let(:song) { Song.new }

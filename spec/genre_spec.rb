@@ -2,7 +2,7 @@ require_relative 'spec_helper.rb'
 
 describe Genre do
   before do
-    Genre.class_variable_get('@@genres').clear
+    Genre.reset_all
   end
 
   let(:genre){Genre.new}
