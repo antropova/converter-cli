@@ -1,6 +1,10 @@
 require_relative 'spec_helper.rb'
 
 describe Genre do
+  before do
+    Genre.class_variable_get('@@genres').clear
+  end
+
   let(:genre){Genre.new}
 
   it_behaves_like 'findable'

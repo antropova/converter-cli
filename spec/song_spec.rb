@@ -1,6 +1,10 @@
 require_relative 'spec_helper.rb'
 
 describe Song do
+  before do
+    Song.class_variable_get('@@songs').clear
+  end
+
   let(:song) { Song.new }
 
   it_behaves_like 'findable'
