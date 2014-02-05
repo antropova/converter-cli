@@ -13,6 +13,9 @@ run `rspec` from the project root folder
    used by the test suite to reset the state of the application and
    all tests will fail before they are implemented.
 
+   Additionally, you will find a class definition for the "Findable"
+   module in "app/concerns".
+
 2. run `ruby bin/cli.rb` and have a functioning app
 
 Feel free to push your own repo or gist if you want me to look at it.
