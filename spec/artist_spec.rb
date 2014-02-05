@@ -1,6 +1,10 @@
 require_relative 'spec_helper.rb'
 
 describe Artist do
+  before do
+    Artist.reset_all
+  end
+
   let(:artist){Artist.new}
   let(:song){Song.new}
   let(:genre){Genre.new}
