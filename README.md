@@ -1,26 +1,35 @@
-# OO Playlister
+# Playlister CLI
 
-Fork/Clone/Download this repository
+In `playlister-rb`, you built a simple domain model for Aritsts, Songs, and Genres. It is now time to make use of that domain model to build an interactive Command Line Jukebox that is populated with data from a folder filled with MP3s.
 
-run `rspec` from the project root folder
+## Setting Up the Project
+
+First, Fork and Clone this project. Code your answer in an appropriate branch, `solution`, and then submit a Pull Request.
+
+You can run the test suite via `rspec`.
 
 ## Objectives
 
-1. Implement the necessary code in app/models to pass all rspec specs.
+### Setup
 
-   It's recommended that you start off by implementing the "::reset_all"
-   methods in the Artist, Song, and Genre classes. These methods are
-   used by the test suite to reset the state of the application and
-   all tests will fail before they are implemented.
+The first step of this project is to set it up correctly.
 
-   Additionally, you will find a class definition for the "Findable"
-   module in "app/concerns".
+You should be delivering the project with the folder structure and setup we've been learning about and using. It looks something like this:
 
-2. run `ruby bin/cli.rb` and have a functioning app
+```
+bin/
+config/
+db/
+lib/
+ models/ 
+spec/
+```
 
-Feel free to push your own repo or gist if you want me to look at it.
 
-## Bonus
+### Domain Model
 
-create a file called `bin/generate.rb` that will generate a static html
-site for the playlister application. Check out `erb` and http://ruby-doc.org/stdlib-2.0.0/libdoc/erb/rdoc/ERB.html
+### Library Parser
+
+### Command Line Application
+
+### Bonus
