@@ -1,3 +1,8 @@
+---
+tags: cli, oo, playlister, parser
+language: ruby
+---
+
 # Playlister CLI
 
 In `playlister-rb`, you built a simple domain model for Aritsts, Songs, and Genres. It is now time to make use of that domain model to build an interactive Command Line Jukebox that is populated with data from a folder filled with MP3s.
