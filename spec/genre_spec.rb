@@ -1,13 +1,11 @@
 require_relative 'spec_helper.rb'
 
 describe Genre do
-  before do
+  before(:each) do
     Genre.reset_all
   end
 
   let(:genre){Genre.new}
-
-  it_behaves_like 'findable'
 
   it "can initialize a genre" do
     genre.should be_an_instance_of(Genre)
@@ -16,11 +14,6 @@ describe Genre do
   it "has a name" do
     genre.name = 'rap'
     genre.name.should eq('rap')
-  end
-
-  it 'has a url' do
-    genre.name = "Hip Hop"
-    genre.url.should eq("hip-hop.html")
   end
 
   it "has many songs" do
@@ -74,6 +67,15 @@ describe Genre do
       Genre.count.should eq(5)
       Genre.reset_all
       Genre.count.should eq(0)
+    end
+
+    it 'finds an genre by name' do
+      genre.name = "Find Me"
+      Genre.find_by_name('Find Me').should eq(genre)
+    end
+
+    it 'creates an genre by name' do
+      Genre.create_by_name('Find Me').name.should eq('Find Me')
     end
   end
 end

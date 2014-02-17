@@ -1,13 +1,20 @@
 require_relative 'spec_helper.rb'
 
 describe Song do
-  before do
+  before(:each) do
     Song.reset_all
   end
 
   let(:song) { Song.new }
 
-  it_behaves_like 'findable'
+  it 'finds an artist by name' do
+    song.name = "Find Me"
+    Song.find_by_name('Find Me').should eq(song)
+  end
+
+  it 'creates an artist by name' do
+    Song.create_by_name('Find Me').name.should eq('Find Me')
+  end
 
   it "can initialize a song" do
     song.should be_a(Song)
@@ -22,11 +29,6 @@ describe Song do
     song.genre = Genre.new.tap {|g| g.name = "rap"}
     song.genre.name.should eq("rap")
     song.genre.should be_a(Genre)
-  end
-
-  it 'has a url' do
-    song.name = "Beat It"
-    song.url.should eq("beat-it.html")
   end
 
   it "has an artist" do
