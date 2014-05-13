@@ -1,6 +1,7 @@
 ---
 tags: cli, oo, playlister, parser
 language: ruby
+  resources: 1
 ---
 
 # Playlister CLI
@@ -96,3 +97,6 @@ Given an artist name, a song name, and a genre name, this method will build the 
 #### `PlaylisterCLI`
 
 This class should be the primary interface for the command line application. Upon initialization, the PlaylisterCLI should parse the main data in data/db. It should allow the user to browse the music and play music. A basic version is included in the `playlister-cli` branch. Have fun with this, add functionality to perhaps browse by Genre or Artist.
+
+## Resources
+* [Build Awesome Command-Line Applications in Ruby](http://books.flatironschool.com/books/103) - [Chapter 1: Have a Clear and Concise Purpose](http://books.flatironschool.com/books/103), page 18
