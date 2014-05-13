@@ -1,6 +1,6 @@
 ---
-tags: cli, oo, playlister, parser
-language: ruby
+  tags: cli, oo, playlister, parser
+  language: ruby
   resources: 1
 ---
 
