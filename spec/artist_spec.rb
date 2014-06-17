@@ -50,7 +50,7 @@ describe Artist do
       artist.songs.should include(song)
     end
 
-    it "knows how many songs it has" do
+    it "can add multiple songs at once" do
       artist.add_songs([song, Song.new])
       artist.songs.count.should eq(2)
     end

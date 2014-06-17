@@ -7,12 +7,12 @@ describe Song do
 
   let(:song) { Song.new }
 
-  it 'finds an artist by name' do
+  it 'finds a song object by name' do
     song.name = "Find Me"
     Song.find_by_name('Find Me').should eq(song)
   end
 
-  it 'creates an artist by name' do
+  it 'creates a song object by name' do
     Song.create_by_name('Find Me').name.should eq('Find Me')
   end
 
@@ -47,6 +47,10 @@ describe Song do
   it "can reset all songs" do
     Song.reset_all
     Song.count.should eq(0)
+  end
+
+  it "keeps track of the songs that have been created" do
+    Song.all.should include(song)
   end
 
 end
