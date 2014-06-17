@@ -41,7 +41,7 @@ describe Song do
     song.name = "We Can't Stop"
     song.artist = Artist.new.tap {|a| a.name = "Miley Cyrus"}
     song.genre = Genre.new.tap {|g| g.name = "Pop"}
-    "#{song}".should eq("Miley Cyrus - We Can't Stop [Pop]")
+    song.to_s.should eq("Miley Cyrus - We Can't Stop [Pop]")
   end
 
   it "can reset all songs" do
