@@ -23,12 +23,30 @@ The first step of this project is to set it up correctly.
 You should be delivering the project with the folder structure and setup we've been learning about and using. It looks something like this:
 
 ```
-bin/
-config/
-db/
-lib/
- models/ 
-spec/
+├── README.md
+├── app
+│   ├── concerns
+│   │   └── findable.rb
+│   └── models
+│       ├── artist.rb
+│       ├── genre.rb
+│       ├── library_parser.rb
+│       └── song.rb
+├── bin
+│   └── cli
+├── config
+│   └── environment.rb
+├── db
+│   └── data
+│       ├── ASAP Rocky - Peso [dance].mp3
+│       ├── Action Bronson - Larry Csonka [indie].mp3
+│       └── etc.
+└── spec
+    ├── artist_spec.rb
+    ├── genre_spec.rb
+    ├── library_parser_spec.rb
+    ├── song_spec.rb
+    └── spec_helper.rb
 ```
 
 #### `bin`
@@ -39,24 +57,13 @@ The `bin` directory contains your executables. Within this directory there is a 
 2. It requires our environment, see below.
 3. We're going to keep this file super simple, it's only job is to create an instance of our PlaylisterCLI interface and then trigger it via the `call` method. We purposely keep this file super simple so that all of our knowledge about the Playlister CLI interface gets encapsulated within our PlaylisterCLI class, defined in lib/models/playlister_cli.rb
 
-#### `config/environment`
-
-This file should require all the files in our application so that our CLI and our test suite have a single require point.
-
 #### `db/data`
 
 This directory contains 99 fake MP3s from which you will build your music library using a LibraryParser class.
 
-#### `lib/models`
+#### `app/models`
 
-Our models live in here, we'll be defining an `Artist`, `Song`, `Genre`, `LibraryParser`, and `PlaylisterCLI`. It might be helpful to create all the skeletons of these classes in these files immediately.
-
-A skeleton of `Artist` in `artist.rb`.
-
-```ruby
-class Artist
-end
-```
+Our models live in here, we'll be defining an `Artist`, `Song`, `Genre`, and `LibraryParser`.
 
 #### `spec`
 
