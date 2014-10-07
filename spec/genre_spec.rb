@@ -8,12 +8,12 @@ describe Genre do
   let(:genre){Genre.new}
 
   it "can initialize a genre" do
-    genre.should be_an_instance_of(Genre)
+    expect(genre).to be_an_instance_of(Genre)
   end
 
   it "has a name" do
     genre.name = 'rap'
-    genre.name.should eq('rap')
+    expect(genre.name).to eq('rap')
   end
 
   it "has many songs" do
@@ -22,7 +22,7 @@ describe Genre do
       song = Song.new
       song.genre = genre
     end
-    genre.songs.count.should eq(3)
+    expect(genre.songs.count).to eq(3)
   end
 
   it "has many artists" do
@@ -35,7 +35,7 @@ describe Genre do
       artist.add_song(song)
     end
 
-    genre.artists.count.should eq(2)
+    expect(genre.artists.count).to eq(2)
   end
 
   it "keeps unique artists" do
@@ -47,35 +47,35 @@ describe Genre do
       song.genre = genre
       artist.add_song(song)
     end
-    genre.artists.count.should eq(1)
+    expect(genre.artists.count).to eq(1)
   end
 
   describe "Class methods" do
     it "keeps track of all known genres" do
-      Genre.count.should eq(0)
+      expect(Genre.count).to eq(0)
       rap = Genre.new.tap{|g| g.name = 'rap'}
       electronica = Genre.new.tap{|g| g.name = 'electronica'}
-      Genre.count.should eq(2)
-      Genre.all.should include(rap)
-      Genre.all.should include(electronica)
+      expect(Genre.count).to eq(2)
+      expect(Genre.all).to include(rap)
+      expect(Genre.all).to include(electronica)
     end
 
     it "can reset genres" do
       genres = (1..5).collect do |i|
         Genre.new
       end
-      Genre.count.should eq(5)
+      expect(Genre.count).to eq(5)
       Genre.reset_all
-      Genre.count.should eq(0)
+      expect(Genre.count).to eq(0)
     end
 
     it 'finds an genre by name' do
       genre.name = "Find Me"
-      Genre.find_by_name('Find Me').should eq(genre)
+      expect(Genre.find_by_name('Find Me')).to eq(genre)
     end
 
     it 'creates an genre by name' do
-      Genre.create_by_name('Find Me').name.should eq('Find Me')
+      expect(Genre.create_by_name('Find Me').name).to eq('Find Me')
     end
   end
 end
