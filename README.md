@@ -6,7 +6,7 @@
 
 # Playlister CLI
 
-In [playlister-rb](http://learn.flatironschool.com/lessons/940), you built a simple domain model for Artists, Songs, and Genres. It is now time to make use of that domain model to build an interactive Command Line Jukebox that is populated with data from a folder filled with MP3s.
+In [playlister-rb](http://learn.flatironschool.com/lessons/940), you built a simple domain model for Artists, Songs, and Genres and in [OO Jukebox](http://learn.flatironschool.com/lessons/806), you built an Object Oriented CLI Jukebox. It is now time to combine these to build an interactive Command Line Jukebox that is populated with data from a folder filled with MP3s.
 
 ## Setting Up the Project
 
@@ -55,7 +55,7 @@ The `bin` directory contains your executables. Within this directory there is a 
 
 1. The first line in the `cli`, that starts with a `#!` is a line that tells BASH what interpreter to run this script through. We send it to: `#!/usr/bin/env ruby`, our ruby interpreter. This lets us write a shell script that can be executed outside of the ruby command (`./bin/cli vs ruby ./bin/cli.rb`).
 2. It requires our environment, see below.
-3. We're going to keep this file super simple, it's only job is to create an instance of our PlaylisterCLI interface and then trigger it via the `call` method. We purposely keep this file super simple so that all of our knowledge about the Playlister CLI interface gets encapsulated within our PlaylisterCLI class, defined in lib/models/playlister_cli.rb
+3. We're going to keep this file super simple, it's only job is to create an instance of our PlaylisterCLI interface and then trigger it via the `call` method. We purposely keep this file super simple so that all of our knowledge about the Playlister CLI interface gets encapsulated within our PlaylisterCLI class, defined in `lib/models/playlister_cli.rb`.
 
 #### `db/data`
 
@@ -63,7 +63,7 @@ This directory contains 99 fake MP3s from which you will build your music librar
 
 #### `app/models`
 
-Our models live in here, we'll be defining an `Artist`, `Song`, `Genre`, and `LibraryParser`.
+Our models live in here; we'll be defining an `Artist`, `Song`, `Genre`, and `LibraryParser`.
 
 #### `spec`
 
@@ -71,7 +71,7 @@ Our tests.
 
 ### Domain Model
 
-I would approach building out the domain model in the following order.
+You should build out the domain model in the following order:
 
 #### `Song`, `Artist`, `Genre`
 
@@ -81,7 +81,9 @@ Some new additions of functionality are class methods `find_by_name`, `create_by
 
 ### `LibraryParser`
 
-The `LibraryParser` should accept a relative path from the top of the directory that points to a directory with MP3s to parse. For example, `LibraryParser.new('db/data')` would point to the `data` directory provided within `db`.
+The `LibraryParser` should responible for finding the MP3 files, parsing their titles, and build Song, Artist, and Genre objects from that data. 
+
+An instance of `LibraryParser` should accept a relative path from the top of the directory that points to a directory with MP3s to parse. For example, `LibraryParser.new('db/data')` would point to the `data` directory provided within `db`.
 
 The `library_parser_spec` defines a pretty specific vision for the library parser. It breaks it down to some small methods.
 
@@ -103,7 +105,11 @@ Given an artist name, a song name, and a genre name, this method will build the 
 
 #### `PlaylisterCLI`
 
-This class should be the primary interface for the command line application. Upon initialization, the PlaylisterCLI should parse the main data in data/db. It should allow the user to browse the music and play music. A basic version is included in the `playlister-cli` branch. Have fun with this, add functionality to perhaps browse by Genre or Artist.
+This class should be the primary interface for the command line application. Upon initialization, the PlaylisterCLI should parse the main data in `data/db` (with the help of your `LibraryParser` class). It should allow the user to browse the music and play music. A basic version is included in the `playlister-cli` branch, which should be familiar to you having already built it! 
+
+###
+
+Have fun with this, add functionality to perhaps browse by Genre or Artist.
 
 ## Resources
 * [Build Awesome Command-Line Applications in Ruby](http://books.flatironschool.com/books/103) - [Chapter 1: Have a Clear and Concise Purpose](http://books.flatironschool.com/books/103), page 18

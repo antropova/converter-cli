@@ -1,5 +1,3 @@
-require_relative 'spec_helper.rb'
-
 describe Genre do
   before(:each) do
     Genre.reset_all
