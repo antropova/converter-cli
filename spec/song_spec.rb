@@ -20,7 +20,7 @@ describe Song do
 
   it "can have a name" do
     song.name = "Jump Around"
-    sexpect(ong.name).to eq("Jump Around")
+    sexpect(song.name).to eq("Jump Around")
   end
 
   it "can have a genre" do
