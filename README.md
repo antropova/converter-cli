@@ -105,7 +105,7 @@ Given an artist name, a song name, and a genre name, this method will build the 
 
 #### `PlaylisterCLI`
 
-This class should be the primary interface for the command line application. Upon initialization, the PlaylisterCLI should parse the main data in `data/db` (with the help of your `LibraryParser` class). It should allow the user to browse the music and play music. A basic version is included in the `playlister-cli` branch, which should be familiar to you having already built it! 
+This class should be the primary interface for the command line application. Upon initialization, the PlaylisterCLI should parse the main data in `data/db` (with the help of your `LibraryParser` class). It should allow the user to browse the music and play music. We already have a basic version coded, and it should be familiar to you having already built something like it! 
 
 ###
 
