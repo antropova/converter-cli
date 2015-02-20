@@ -1,10 +1,20 @@
 ---
-tags: cli, oo, full-application, project
+tags: cli, oo, full-application, project, oop
 language: ruby
-resources: 1
+resources: 2
 ---
 
 # Project Week 1
+
+## Contents
+
+This readme is organized into six sections:
+1. Guidelines
+2. Requirements
+3. Inspiration
+4. Instructions
+5. Bonus
+6. Resources
 
 ## Guidelines
 
