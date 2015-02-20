@@ -8,14 +8,16 @@ resources: 2
 
 ## Contents
 
-This readme is organized into six sections:
+This readme is organized into eight sections:
 
 1. Guidelines
 2. Requirements
 3. Inspiration
 4. Instructions
-5. Bonus
-6. Resources
+5. Adding Gems
+6. Testing out Your Code
+7. Bonus
+8. Resources
 
 ## Guidelines
 
