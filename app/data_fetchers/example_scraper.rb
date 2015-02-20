@@ -1,7 +1,5 @@
-require_relative '../config/environment'
-
 class ExampleScraper
-  
+
   attr_reader :html
 
   # url = "https://twitter.com/search?q=%22will%20be%20pooping%20bottles%22&src=typd&f=realtime"
@@ -18,5 +16,5 @@ class ExampleScraper
     end
     urls
   end
-  
+
 end
