@@ -126,7 +126,7 @@ Here are some popular websites you can scrape
 * Each team member should run `bundle install`
 * Get familiar with the structure of this lab:
 
-```txt
+```
 ├── Gemfile
 ├── README.md
 ├── app
