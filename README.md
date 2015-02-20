@@ -41,7 +41,7 @@ Your app should have at least three classes:
   * This should be interactive. Users should be able to change the way it behaves through typing keywords. Keywords that must be accounted for are:
     * help
     * exit
-  * The CLI should also respond to at least two more keywords of your choosing (these will probably vary depending on the purpose of your app)
+  * The CLI should also respond to at least two more keywords of your choosing (these will probably vary depending on the purpose of your app, some might be "start", "search", etc.).
 2. Data Fetcher
   * The second class should fetch data and it will be in the `app/data_fetchers` folder
   * This could be a [Nokogiri scraper](), in which case you should name it something like BuzzFeedScraper, `app/data_fetchers/buzzfeed_scraper.rb`
