@@ -162,6 +162,16 @@ Here are some popular websites you can scrape
 
 This lab manages gems using [Bundler](http://bundler.io/). This means that instead of writing "require `name-of-gem'` at the top of your files, you're going to add that gem to the Gemfile, for instance `gem "nokogiri"`, then run `bundle install` again. The file `config/environment.rb` requires all these gems, then loads your modules, then your models, then your scrapers/API callers, then your CLI runner. Then it requires the "json" and "open-uri" modules.
 
+## Testing Your Code
+
+To see what your code is like, run `rake console` from your terminal. To see why this works, take a look at the Rakefile. It loads the following items in order:
+
+1. gems
+2. modules
+3. models
+4. data fetchers
+5. cli
+
 ## Bonus
 
 Test your app. Refer to tests for [Playlister CLI](https://github.com/flatiron-school-ironboard/playlister-cli-bk-002) if you'd like to see how to test CLIs. Refer to [RSpec Docs](https://www.relishapp.com/rspec) (they're actually great) if you have questions.
