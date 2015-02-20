@@ -1,11 +1,8 @@
 class ExampleCLI
 
   def call
-    puts "Welcome, what would you like to search Twitter for?"
-    url = 'https://twitter.com/search?q=#{search_term}&src=typd&f=realtime'
-    urls = ExampleScraper.new(url).example_method
-    puts "Welcome to the example CLI."
-    puts "Type help to see what you can do!"
+    puts "Welcome, what Twitter search word should I use?"
+    run
   end
     
   def get_user_input
@@ -13,18 +10,27 @@ class ExampleCLI
   end
 
   def run
+    print "New search keyword: "
     input = get_user_input
     if input == "help"
       help
     elsif input == "exit"
-      break
+      exit
     else
-      url = "https://twitter.com/search?q=#{input}&src=typd&f=realtime"
-      tweet = ExampleScraper.new(url).example_method
+      search(input)
     end
     run
   end
-  
+
+  def search(input)
+    search_term = input.split(" ")[0]
+    puts "Your search term was #{search_term}, I am searching..."
+    url = "https://twitter.com/search?q=#{search_term}&src=typd&f=realtime"
+    tweet = ExampleScraper.new(url).example_method.sample
+    puts "Thank you for your patience. I found this on Twitter:"
+    puts tweet.example
+  end
+
   def help
     puts "Type 'exit' to exit"
     puts "Type 'help' to view this menu again"

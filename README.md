@@ -47,6 +47,8 @@ Your app should have at least three classes:
   * This could be a [Nokogiri scraper](), in which case you should name it something like BuzzFeedScraper, `app/data_fetchers/buzzfeed_scraper.rb`
   * It could also make API calls, in which case you should name it something like BuzzFeedAPICaller, `app/data_fetchers/buzzfeed_api_caller.rb`
     * If you would like help from instructors when creating the class that makes API calls, the API you select must not require authentication (that means no Twitter, no Facebook, no Instagram, etc.). You can use APIs that do require authentication as long as you're comfortable knowning that instructors will not help you debug them.
+  * Finally, it could also be a data parser. You could download CSV files, JSON, spreadsheets, etc. from the internet, add them to a  `lib` folder you will create, and have your data parser parse through the files an instantiate new instances of your model class or classes.
+  * Note about data fetchers: They must instantiate new instances of your model class or classes.
 3. Model(s)
   * The third class should be a model of your data, in the `app/models` folder
   * If you are fetching data from Spotify for instance, an appropriate model might be Song. Song could have a couple attributes:

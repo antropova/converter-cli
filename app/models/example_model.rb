@@ -1,9 +1,9 @@
 class ExampleModel
 
-  attr_reader :url
+  attr_reader :example
 
-  def initialize(url)
-    @url = url
+  def initialize(example)
+    @example = example
   end
 
 end

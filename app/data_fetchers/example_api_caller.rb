@@ -2,7 +2,9 @@ class SpotifyChart
 
   attr_reader :url, :music_data
 
-  # url = "http://charts.spotify.com/api/tracks/most_streamed/us/weekly/latest"
+  # example url:
+  # "http://charts.spotify.com/api/tracks/most_streamed/us/weekly/latest"
+  
   def initialize(url)
     @url = url
     @music_data = JSON.load(open(url))
