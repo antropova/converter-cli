@@ -32,3 +32,4 @@ class ExampleCLI
   end
 
 end
+
