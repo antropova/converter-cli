@@ -1,115 +1,101 @@
 ---
-  tags: cli, oo, playlister, parser, full-application
-  language: ruby
-  resources: 1
+tags: cli, oo, full-application, project
+language: ruby
+resources: 1
 ---
 
-# Playlister CLI
+# Project Week 1
 
-In [playlister-rb](http://learn.flatironschool.com/lessons/940), you built a simple domain model for Artists, Songs, and Genres and in [OO Jukebox](http://learn.flatironschool.com/lessons/806), you built an Object Oriented CLI Jukebox. It is now time to combine these to build an interactive Command Line Jukebox that is populated with data from a folder filled with MP3s.
+## Guidelines
 
-## Setting Up the Project
+1. Groups
+ * You may work alone or in pairs. The max group size is two.
+2. Timeline
+  * You will have three days of class to complete this project. 
+  * Your app must have basic functionality by the early afternoon on Wednesday the 25th as you will be presenting it to the class around 4pm.
+3. Approval
+  * Before starting on your project, you must get your idea approved by an instructor.
+4. Design
+  * Your app using object oriented programming techniques
+5. Two main components
+  * Your app must fetch data from the internet by making API calls or scraping
+  * Your app must be have an interactive command line interface or CLI
 
-First, Fork and Clone this project. Code your answer in an appropriate branch, `solution`, and then submit a Pull Request.
+## Requirements
 
-You can run the test suite via `rspec`.
+Your app should have at least three classes:
 
-## Objectives
+1. CLI Runner
+  * One class should handle the CLI section and it should be located in the `app/runners` folder'
+  * This should be interactive. Users should be able to change the way it behaves through typing keywords. Keywords that must be accounted for are:
+    * help
+    * exit
+  * The CLI should also respond to at least two more keywords of your choosing (these will probably vary depending on the purpose of your app)
+2. Data Fetcher
+  * The second class should fetch data and it will be in the `app/data_fetchers` folder
+  * This could be a [Nokogiri scraper](), in which case you should name it something like BuzzFeedScraper, `app/data_fetchers/buzzfeed_scraper.rb`
+  * It could also make API calls, in which case you should name it something like BuzzFeedAPICaller, `app/data_fetchers/buzzfeed_api_caller.rb`
+    * The API you select must not require authentication (that means no Twitter, no Facebook, no Instagram, etc.)
+3. Model(s)
+  * The third class should be a model of your data, in the `app/models` folder
+  * If you are fetching data from Spotify for instance, an appropriate model might be Song. Song could have a couple attributes:
+    * artist
+    * album
+    * length
+    * etc.
+  * Feel free to use more than one model for your data, one is the minimum
 
-### Setup
+## Inspiration
 
-The first step of this project is to set it up correctly.
 
-You should be delivering the project with the folder structure and setup we've been learning about and using. It looks something like this:
 
-```
+## Instructions
+
+* Choose your group or decide to work alone.
+* Brainstorm ideas.
+* Get your idea approved by an instructor.
+* Decide who will fork this lab.
+* Have everyone in your group clone down the fork onto their local machines.
+* Get familiar with the structure of this lab:
+
+```txt
 ├── README.md
 ├── app
 │   ├── concerns
-│   │   └── findable.rb
-│   └── models
-│       ├── artist.rb
-│       ├── genre.rb
-│       ├── library_parser.rb
-│       └── song.rb
+│   │   └── example_module.rb
+│   ├── data_fetchers
+│   │   ├── example_api_caller.rb
+│   │   └── example_scraper.rb
+│   ├── models
+│   │   └── example_model.rb
+│   └── runners
+│       └── example_cli.rb
 ├── bin
 │   └── cli
 ├── config
 │   └── environment.rb
-├── db
-│   └── data
-│       ├── ASAP Rocky - Peso [dance].mp3
-│       ├── Action Bronson - Larry Csonka [indie].mp3
-│       └── etc.
 └── spec
-    ├── artist_spec.rb
-    ├── genre_spec.rb
-    ├── library_parser_spec.rb
-    ├── song_spec.rb
+    ├── example_spec.rb
+    ├── fixtures
+    │   └── example_fixture_file.json
     └── spec_helper.rb
 ```
 
-#### `bin`
+* Think about what your model(s) will look like.
+* Start replacing the example code with your own code *in this order*:
+  * See what kind of data you can get from your API calls or your scraper and start to build it out
+  * Given this data, make your model(s)
+  * Have your data fetcher (either API caller or scraper) instantiate new instances of your model(s)
+  * Once you have a functional API caller/scraper, start working on your CLI class in `app/runners/example_cli.rb`
+  * Update `bin/cli.rb` so that it calls on your CLI class correctly. You should be able to run `ruby bin/cli.rb` from your terminal to interact with your app.
+  * Once your CLI is functional, replace this readme with instructions on how to use your app.
+  * If you have time, start testing your app (see the bonus section).
 
-The `bin` directory contains your executables. Within this directory there is a file, `cli`, that will work as our runner, or the part of a program that kicks off the rest of the process. This file will do the following things:
+## Bonus
 
-1. The first line in the `cli`, that starts with a `#!` is a line that tells BASH what interpreter to run this script through. We send it to: `#!/usr/bin/env ruby`, our ruby interpreter. This lets us write a shell script that can be executed outside of the ruby command (`./bin/cli vs ruby ./bin/cli.rb`).
-2. It requires our environment, see below.
-3. We're going to keep this file super simple, it's only job is to create an instance of our PlaylisterCLI interface and then trigger it via the `call` method. We purposely keep this file super simple so that all of our knowledge about the Playlister CLI interface gets encapsulated within our PlaylisterCLI class, defined in `lib/models/playlister_cli.rb`.
-
-#### `db/data`
-
-This directory contains 99 fake MP3s from which you will build your music library using a LibraryParser class.
-
-#### `app/models`
-
-Our models live in here; we'll be defining an `Artist`, `Song`, `Genre`, and `LibraryParser`.
-
-#### `spec`
-
-Our tests.
-
-### Domain Model
-
-You should build out the domain model in the following order:
-
-#### `Song`, `Artist`, `Genre`
-
-These classes have to be built in unison as they collaborate so heavily. Begin with the `Song` class according to spec as it is the central character, and add `Artist` and `Genre` behavior as they are required. They are very similar to the classes defined in the `playlister-rb` project.
-
-Some new additions of functionality are class methods `find_by_name`, `create_by_name`, and `reset_all`. The `create_by_name` method is a shortcut to instantiation with a name. We do this because we want to extend the functionality of creating an instance, instead of changing the behavior of initialize. By building a class method `create_by_name` that explicitly accepts a name argument and handles initialization, the `initialize` method does not need to be responsible for attribute assignment. `find_by_name` should be able to pluck the correct object out of the collections within the class method `all`. Additionally, a `reset_all` method is provided to clear our data.
-
-### `LibraryParser`
-
-The `LibraryParser` should responible for finding the MP3 files, parsing their titles, and build Song, Artist, and Genre objects from that data. 
-
-An instance of `LibraryParser` should accept a relative path from the top of the directory that points to a directory with MP3s to parse. For example, `LibraryParser.new('db/data')` would point to the `data` directory provided within `db`.
-
-The `library_parser_spec` defines a pretty specific vision for the library parser. It breaks it down to some small methods.
-
-`files`
-
-This method should return all the filenames within the target directory.
-
-`parse`
-
-Should actually parse all the file names and create corresponding instances.
-
-`parse_filename`
-
-Given a filename, this should separate it out to the corresponding data points of an artist, a song, and a genre.
-
-`build_song`
-
-Given an artist name, a song name, and a genre name, this method will build the corresponding object instances of `Artist`, `Song`, and `Genre`.
-
-#### `PlaylisterCLI`
-
-This class should be the primary interface for the command line application. Upon initialization, the PlaylisterCLI should parse the main data in `data/db` (with the help of your `LibraryParser` class). It should allow the user to browse the music and play music. We already have a basic version coded, and it should be familiar to you having already built something like it! 
-
-###
-
-Have fun with this, add functionality to perhaps browse by Genre or Artist.
+Test your app. Refer to tests for [Playlister CLI](https://github.com/flatiron-school-ironboard/playlister-cli-bk-002) if you'd like to see how to test CLIs. Refer to [RSpec Docs](https://www.relishapp.com/rspec) (they're actually great) if you have questions.
 
 ## Resources
-* [Build Awesome Command-Line Applications in Ruby](http://books.flatironschool.com/books/103) - [Chapter 1: Have a Clear and Concise Purpose](http://books.flatironschool.com/books/103), page 18
+
+* [RSpec Docs](https://www.relishapp.com/rspec)
+* [Playlister CLI](https://github.com/flatiron-school-ironboard/playlister-cli-bk-002)

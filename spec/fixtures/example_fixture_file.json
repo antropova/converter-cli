@@ -1,0 +1,4 @@
+{
+  "comment 1": "If you'd like to test your models, cli, etc. with JSON or other data files",
+  "comment 2": "you can put them in the fixtures folder"
+}
