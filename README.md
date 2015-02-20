@@ -28,7 +28,7 @@ This readme is organized into six sections:
   * Before starting on your project, you must get your idea approved by an instructor.
 4. Design
   * Your app using object oriented programming techniques
-5. Two main components
+5. Components
   * Your app must fetch data from the internet by making API calls or scraping
   * Your app must be have an interactive command line interface or CLI
 
@@ -46,7 +46,7 @@ Your app should have at least three classes:
   * The second class should fetch data and it will be in the `app/data_fetchers` folder
   * This could be a [Nokogiri scraper](), in which case you should name it something like BuzzFeedScraper, `app/data_fetchers/buzzfeed_scraper.rb`
   * It could also make API calls, in which case you should name it something like BuzzFeedAPICaller, `app/data_fetchers/buzzfeed_api_caller.rb`
-    * The API you select must not require authentication (that means no Twitter, no Facebook, no Instagram, etc.)
+    * If you would like help from instructors when creating the class that makes API calls, the API you select must not require authentication (that means no Twitter, no Facebook, no Instagram, etc.). You can use APIs that do require authentication as long as you're comfortable knowning that instructors will not help you debug them.
 3. Model(s)
   * The third class should be a model of your data, in the `app/models` folder
   * If you are fetching data from Spotify for instance, an appropriate model might be Song. Song could have a couple attributes:
@@ -58,7 +58,59 @@ Your app should have at least three classes:
 
 ## Inspiration
 
-* TODO
+These are all suggestions to get your mind churning. By no means are you limited to working with something off of the following lists.
+
+### Data Parsing
+
+* [NYC Open Data](https://nycopendata.socrata.com/)
+* [US Open Data](http://www.data.gov/open-gov/)
+* [Bachelor Contestants](https://raw.githubusercontent.com/kthffmn/bachelor-contestants/master/data.json)
+
+### Scraping
+
+Here are some popular websites you can scrape
+
+* [BuzzFeed](http://www.buzzfeed.com/)
+* Twitter Searches - For instance, searched for hello: [https://twitter.com/search?f=realtime&q=hello&src=typd](https://twitter.com/search?f=realtime&q=hello&src=typd)
+  * Format: "https://twitter.com/search?f=realtime&q=" + search_term + "&src=typd"
+* [Gawker](http://gawker.com/)
+* [The Huffington Post](http://www.huffingtonpost.com/)
+* [Imgur](http://imgur.com/)
+* [New York Times](http://www.nytimes.com/)
+* [Wired](http://www.wired.com/)
+* [ValleyWag](http://valleywag.gawker.com/)
+
+### APIs  
+
+##### Here are some popular open APIs
+
+* [Census Data](http://www.census.gov/data/developers/data-sets/population-estimates-and-projections.html)
+* [The Guardian](http://open-platform.theguardian.com/documentation/)
+* [Flickr](https://developer.yahoo.com/flickr/)
+* [Google Places](https://developers.google.com/places/)
+* [Jobs API](http://search.digitalgov.gov/developer/jobs.html)
+* [New York Times](http://developer.nytimes.com/docs)
+* [Open Weather](http://openweathermap.org/current)
+* [Spotify Charts](http://charts.spotify.com/docs)
+
+##### Here are some popular APIs that require authentication
+
+*Note: Instructors will not help you debug the APIs below*
+
+* [GitHub](https://developer.github.com/v3/)
+* [Imgur](https://api.imgur.com/#endpoints)
+* [Instagram](https://instagram.com/developer/)
+* [Fakebook Graph API](https://developers.facebook.com/tools/explorer/145634995501895/?method=GET&path=me%3Ffields%3Did%2Cname&version=v2.2)
+* [Giphy](https://github.com/Giphy/GiphyAPI)
+* [Google Maps](http://www.programmableweb.com/api/google-maps)
+* [Pintrest]()
+* [Reddit](http://www.reddit.com/dev/api)
+* [Twitter REST API](https://dev.twitter.com/rest/public)
+* [Twitter Streaming API](https://dev.twitter.com/streaming/overview)
+* [Tumblr](https://www.tumblr.com/docs/en/api/v2)
+* [YouTube](https://developers.google.com/youtube/v3/)
+
+*Keep in mind that instructors will not help you debug the APIs below*
 
 ## Instructions
 
@@ -67,9 +119,11 @@ Your app should have at least three classes:
 * Get your idea approved by an instructor.
 * Decide who will fork this lab.
 * Have everyone in your group clone down the fork onto their local machines.
+* Each team member should run `bundle install`
 * Get familiar with the structure of this lab:
 
 ```txt
+├── Gemfile
 ├── README.md
 ├── app
 │   ├── concerns
@@ -82,7 +136,7 @@ Your app should have at least three classes:
 │   └── runners
 │       └── example_cli.rb
 ├── bin
-│   └── cli
+│   └── run.rb
 ├── config
 │   └── environment.rb
 └── spec
@@ -102,11 +156,16 @@ Your app should have at least three classes:
   * Once your CLI is functional, replace this readme with instructions on how to use your app.
   * If you have time, start testing your app (see the bonus section).
 
+## Adding Gems
+
+This lab manages gems using [Bundler](http://bundler.io/). This means that instead of writing "require `name-of-gem'` at the top of your files, you're going to add that gem to the Gemfile, for instance `gem "nokogiri"`, then run `bundle install` again. The file `config/environment.rb` requires all these gems, then loads your modules, then your models, then your scrapers/API callers, then your CLI runner. Then it requires the "json" and "open-uri" modules.
+
 ## Bonus
 
 Test your app. Refer to tests for [Playlister CLI](https://github.com/flatiron-school-ironboard/playlister-cli-bk-002) if you'd like to see how to test CLIs. Refer to [RSpec Docs](https://www.relishapp.com/rspec) (they're actually great) if you have questions.
 
 ## Resources
 
+* [About Bundler](http://bundler.io/)
 * [RSpec Docs](https://www.relishapp.com/rspec)
 * [Playlister CLI](https://github.com/flatiron-school-ironboard/playlister-cli-bk-002)

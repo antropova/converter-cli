@@ -1,3 +1,5 @@
+require_relative '../config/environment'
+
 class SpotifyChart
 
   attr_reader :url, :music_data

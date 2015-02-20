@@ -1,3 +1,5 @@
+require_relative '../config/environment'
+
 class ExampleScraper
   
   attr_reader :html

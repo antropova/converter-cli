@@ -1,3 +1,5 @@
+require_relative '../config/environment'
+
 class ExampleCLI
 
   def call
