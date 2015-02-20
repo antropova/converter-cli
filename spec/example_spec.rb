@@ -1,4 +1,4 @@
-describe Something do
+describe 'Something' do
 
   # before(:each) usually goes up top, for example:
   # before(:each) do
@@ -13,5 +13,10 @@ describe Something do
   #   artist.add_song(song)
   #   expect(artist.songs).to include(song)
   # end
+
+  it "I changed this boolean to true when I finished this lab" do
+    done = false
+    expect(done).to eq(true)
+  end
 
 end

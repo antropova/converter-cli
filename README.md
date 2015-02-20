@@ -74,7 +74,7 @@ Here are some popular websites you can scrape
 
 * [BuzzFeed](http://www.buzzfeed.com/)
 * Twitter Searches - For instance, searched for hello: [https://twitter.com/search?f=realtime&q=hello&src=typd](https://twitter.com/search?f=realtime&q=hello&src=typd)
-  * Format: "https://twitter.com/search?f=realtime&q=" + search_term + "&src=typd"
+  * Format: `"https://twitter.com/search?f=realtime&q=" + search_term + "&src=typd"`
 * [Gawker](http://gawker.com/)
 * [The Huffington Post](http://www.huffingtonpost.com/)
 * [Imgur](http://imgur.com/)
