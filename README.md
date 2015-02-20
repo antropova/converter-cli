@@ -9,6 +9,7 @@ resources: 2
 ## Contents
 
 This readme is organized into six sections:
+
 1. Guidelines
 2. Requirements
 3. Inspiration
