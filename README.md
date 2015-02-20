@@ -154,7 +154,7 @@ Here are some popular websites you can scrape
   * Given this data, make your model(s)
   * Have your data fetcher (either API caller or scraper) instantiate new instances of your model(s)
   * Once you have a functional API caller/scraper, start working on your CLI class in `app/runners/example_cli.rb`
-  * Update `bin/cli.rb` so that it calls on your CLI class correctly. You should be able to run `ruby bin/cli.rb` from your terminal to interact with your app.
+  * Update `bin/run.rb` so that it calls on your CLI class correctly. You should be able to run `ruby bin/run.rb` from your terminal to interact with your app.
   * Once your CLI is functional, replace this readme with instructions on how to use your app.
   * If you have time, start testing your app (see the bonus section).
 
