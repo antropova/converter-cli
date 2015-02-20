@@ -58,7 +58,7 @@ Your app should have at least three classes:
 
 ## Inspiration
 
-
+* TODO
 
 ## Instructions
 
