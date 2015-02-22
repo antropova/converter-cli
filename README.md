@@ -1,7 +1,7 @@
 ---
 tags: cli, oo, full-application, project, oop
 language: ruby
-resources: 2
+resources: 3
 ---
 
 # Project Week 1
@@ -80,7 +80,7 @@ Here are some popular websites you can scrape
 * [Gawker](http://gawker.com/)
 * [The Huffington Post](http://www.huffingtonpost.com/)
 * [Imgur](http://imgur.com/)
-* [New York Times](http://www.nytimes.com/)
+* [Tech Crunch](http://techcrunch.com/)
 * [Wired](http://www.wired.com/)
 * [ValleyWag](http://valleywag.gawker.com/)
 
@@ -89,8 +89,9 @@ Here are some popular websites you can scrape
 ##### Here are some popular open APIs
 
 * [Census Data](http://www.census.gov/data/developers/data-sets/population-estimates-and-projections.html)
-* [The Guardian](http://open-platform.theguardian.com/documentation/)
 * [Flickr](https://developer.yahoo.com/flickr/)
+* [The Guardian](http://open-platform.theguardian.com/documentation/)
+* [Hacker News](https://github.com/HackerNews/API)
 * [Google Places](https://developers.google.com/places/)
 * [Jobs API](http://search.digitalgov.gov/developer/jobs.html)
 * [New York Times](http://developer.nytimes.com/docs)
