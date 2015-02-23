@@ -9,3 +9,4 @@ Dir["app/runners/*.rb"].each {|f| require f}
 
 require "open-uri"
 require "json"
+require "pry"
