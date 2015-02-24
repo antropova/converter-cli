@@ -2,7 +2,7 @@ module Parser
   def parse(input)
     case_1 = /^\w{3}$/
     case_2 = /^\d+\s\w{3}$/
-    case_3 = /^\d+\s\w{3}\sto\s\w{3}$/
+    case_3 = /^\d+\s\w{3}\sto\s\w{3}$/i
     if input =~ case_1 && rates.countries.keys.include?(input.upcase)
       amount = 1
       initial_cur = input
