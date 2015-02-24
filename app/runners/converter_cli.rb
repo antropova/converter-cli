@@ -30,12 +30,13 @@ class ConverterCLI
 
   def convert(input)
     input = self.parse(input)
-    cur = Currency.new(input, rates)
+    api.rates = api.historical(input[3]) if input[3]
+    cur = Currency.new(input, @api)
     print_result(cur)
   end
 
   def print_result(cur) 
-    puts Rainbow("#{cur.amount} #{cur.name}(s) is #{cur.converted.round(3)} #{rates.countries[cur.result_cur]}(s)").color("#FF66FF").bright
+    puts Rainbow("#{cur.amount} #{cur.name}(s) is #{cur.converted.round(3)} #{api.countries[cur.result_cur]}(s)").color("#FF66FF").bright
   end
   
   def help
@@ -44,16 +45,17 @@ class ConverterCLI
     puts "Type "  + Rainbow("list").cyan.bright + " to list currencies names and shortcuts"
     puts "To convert currency please use the following format: "
     string = <<-EOF
-    #{Rainbow("rub").cyan.bright}            -> converts 1 Russian Ruble to US Dollars 
-    #{Rainbow("10 rub").cyan.bright}         -> converts 10 Russian Rubles to US Dollars
-    #{Rainbow("20 rub to mdl").cyan.bright}  -> converts 20 Russian Rubles to Moldovan Leus
+    #{Rainbow("rub").cyan.bright}                       -> converts 1 Russian Ruble to US Dollars 
+    #{Rainbow("10 rub").cyan.bright}                    -> converts 10 Russian Rubles to US Dollars
+    #{Rainbow("20 rub to mdl").cyan.bright}             -> converts 20 Russian Rubles to Moldovan Leus
+    #{Rainbow("20 rub to mdl YYYY-MM-DD").cyan.bright}  -> converts using the exchange rate from the specific date
     Input is case insensitive 
 EOF
     puts string
   end
 
   def list
-    rates.countries.each do |shortcut, country|
+    api.countries.each do |shortcut, country|
       puts Rainbow("#{shortcut}").cyan.bright + ": #{country}"
     end
   end
