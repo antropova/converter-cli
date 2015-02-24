@@ -1,8 +1,8 @@
 class ConverterCLI
-  attr_reader :rates
+  attr_reader :api
 
   def initialize
-    @rates = Rates.new
+    @api = RatesAPI.new
   end
 
   include Parser
