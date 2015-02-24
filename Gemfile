@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "nokogiri"
+gem "rainbow"
 
 group "development" do
   gem "pry"
