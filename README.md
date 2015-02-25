@@ -1,11 +1,3 @@
-Project 1
-team @AndreiMotinga
-
-Currency converter
-
-This simple app converts your currency right in the command line.
-
-
 ---
 tags: cli, oo, full-application, project, oop
 language: ruby
@@ -40,7 +32,7 @@ This readme is organized into eight sections:
   * Your app using object oriented programming techniques
 5. Components
   * Your app must fetch data from the internet by making API calls or scraping
-  * Your app must have an interactive command line interface or CLI
+  * Your app must be have an interactive command line interface or CLI
 
 ## Requirements
 
