@@ -2,6 +2,7 @@ class RatesAPI
   attr_accessor :rates, :countries
 
   def initialize
+    # @json_rates = JSON.parse( IO.read("./spec/fixtures/rates.json") )
     @url = "https://openexchangerates.org/api/latest.json?app_id=3fb2b129f6b64345a150612f6362b1fb"
     @json_rates = JSON.load(open(@url))
     @rates = @json_rates["rates"]

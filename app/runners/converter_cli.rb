@@ -30,11 +30,7 @@ class ConverterCLI
 
   def convert(input)
     input = self.parse(input)
-    if input[3]
-      api.historical(input[3]) 
-    else
-      api.latest
-    end
+    api.rates = api.historical(input[3]) if input[3]
     cur = Currency.new(input, @api)
     print_result(cur)
   end
