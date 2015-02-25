@@ -15,7 +15,7 @@ describe 'Something' do
   # end
 
   it "I changed this boolean to true when I finished this lab" do
-    done = false
+    done = true
     expect(done).to eq(true)
   end
 
