@@ -12,7 +12,7 @@ class ConverterCLI
     puts "\nType " + Rainbow("help").cyan.bright + " for options or"
     run
   end
-    
+
   def run
     puts "Type in command: "
     input = gets.strip
@@ -30,7 +30,11 @@ class ConverterCLI
 
   def convert(input)
     input = self.parse(input)
-    api.rates = api.historical(input[3]) if input[3]
+    if input[3]
+      api.historical(input[3])
+    else 
+      api.latest
+    end
     cur = Currency.new(input, @api)
     print_result(cur)
   end
@@ -38,7 +42,7 @@ class ConverterCLI
   def print_result(cur) 
     puts Rainbow("#{cur.amount} #{cur.name}(s) is #{cur.converted.round(3)} #{api.countries[cur.result_cur]}(s)").color("#FF66FF").bright
   end
-  
+
   def help
     puts "Type " + Rainbow("exit").cyan.bright + " to exit"
     puts "Type " + Rainbow("help").cyan.bright + " to view this menu again"
@@ -50,7 +54,7 @@ class ConverterCLI
     #{Rainbow("20 rub to mdl").cyan.bright}             -> converts 20 Russian Rubles to Moldovan Leus
     #{Rainbow("20 rub to mdl YYYY-MM-DD").cyan.bright}  -> converts using the exchange rate from the specific date
     Input is case insensitive 
-EOF
+    EOF
     puts string
   end
 
