@@ -14,7 +14,7 @@ class ConverterCLI
   end
     
   def run
-    puts "Type in command: "
+    puts "Type command: "
     input = gets.strip
     if input == "help"
       help

@@ -3,7 +3,8 @@ class RatesAPI
 
   def initialize
     @url = "https://openexchangerates.org/api/latest.json?app_id=3fb2b129f6b64345a150612f6362b1fb"
-    @json_rates = JSON.load(open(@url))
+    # @json_rates = JSON.load(open(@url))
+    @json_rates = JSON.load(File.read("./spec/fixtures/rates.json"))
     @rates = @json_rates["rates"]
     @countries = JSON.parse( IO.read("./spec/fixtures/currency_country_names.json") )
   end
