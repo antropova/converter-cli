@@ -3,7 +3,7 @@ describe AmountWithCurrency do
     it "should return an array" do
       with_currency = AmountWithCurrency.new("20 rub")
       expect(with_currency.call).to be_an(Array)
-    end
+    en
   end
 end
 
