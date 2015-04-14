@@ -59,8 +59,8 @@ end
 
 class WithAmountAndDate
  attr_reader :input
- def initialize(input)
-  @input = input
+  def initialize(input)
+    @input = input
   end
 
   def call
